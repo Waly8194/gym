@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Routine Planner - مخطط التمرين</title>
+    <!-- تم تعديل المسار هنا بإضافة نقطة وشرطة مائلة -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header class="main-header">
+        <h1>🏋️‍♂️ IronTracker - مخطط تمرينك</h1>
+        <p>صمم جدولك، سجل أوزانك، وتابع تطورك في الجيم</p>
+    </header>
+
+    <main class="container">
+
+        <!-- ⏱️ عداد الراحة بين المجاميع -->
+        <section class="rest-timer-section">
+            <h2>عداد الراحة بين المجاميع</h2>
+            <div class="timer-display">
+                <span id="timer-countdown">01:00</span>
+            </div>
+            <div class="timer-controls">
+                <button class="btn-timer" onclick="startTimer(60)">راحة دقيقة (60ث)</button>
+                <button class="btn-timer" onclick="startTimer(90)">راحة دقيقة ونصف (90ث)</button>
+                <button class="btn-timer btn-stop" onclick="stopTimer()">إيقاف</button>
+            </div>
+        </section>
+
+        <!-- اختيار يوم التمرين -->
+        <section class="split-selector">
+            <h2>اختر يوم التمرين:</h2>
+            <div class="split-buttons">
+                <button class="btn-split active" data-day="push">Push (دفع)</button>
+                <button class="btn-split" data-day="pull">Pull (سحب)</button>
+                <button class="btn-split" data-day="legs">Legs (أرجل)</button>
+                <button class="btn-split" data-day="arms">Arms & Abs (ذراع وبطن)</button>
+            </div>
+        </section>
+
+        <!-- نموذج إضافة تمرين جديد -->
+        <section class="add-exercise-section">
+            <h2>إضافة تمرين جديد</h2>
+            <form id="exercise-form">
+                <div class="form-group">
+                    <label for="exercise-name">اسم التمرين:</label>
+                    <input type="text" id="exercise-name" placeholder="مثال: Bench Press" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="muscle-group">العضلة المستهدفة:</label>
+                    <select id="muscle-group">
+                        <option value="chest">صدر (Chest)</option>
+                        <option value="back">ظهر (Back)</option>
+                        <option value="shoulders">أكتاف (Shoulders)</option>
+                        <option value="biceps">بايسبس (Biceps)</option>
+                        <option value="triceps">ترايسبس (Triceps)</option>
+                        <option value="legs">أرجل (Legs)</option>
+                        <option value="core">بطن وعضلات كور (Core)</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="weight">الوزن (كجم):</label>
+                        <input type="number" id="weight" placeholder="مثال: 60" min="0" step="0.5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sets">المجموعات (Sets):</label>
+                        <input type="number" id="sets" placeholder="مثال: 4" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reps">العدّات (Reps):</label>
+                        <input type="number" id="reps" placeholder="مثال: 10" min="1" required>
+                    </div>
+                </div>
+
+                <button type="submit" id="add-btn">➕ إضافة التمرين</button>
+            </form>
+        </section>
+
+        <!-- عرض التمارين المضافة -->
+        <section class="workout-display">
+            <div class="section-header">
+                <h2>تمارين اليوم</h2>
+                <button id="clear-all-btn" class="btn-danger">مسح الكل</button>
+            </div>
+
+            <div id="exercise-list" class="exercise-grid">
+                <!-- التمارين ستظهر هنا تلقائياً -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- تم تعديل مسار الـ JS هنا أيضاً -->
+    <script src="./script.js"></script>
+</body>
+</html>
